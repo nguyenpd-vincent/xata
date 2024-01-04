@@ -1,0 +1,8 @@
+const LOCAL_STORAGE_TOKEN = "accessToken";
+const LOCAL_STORAGE_REFRESH_TOKEN = "refreshToken";
+
+enum TYPE_CHAT {
+  PRIVATE = "private",
+}
+
+export { LOCAL_STORAGE_TOKEN, LOCAL_STORAGE_REFRESH_TOKEN, TYPE_CHAT };
