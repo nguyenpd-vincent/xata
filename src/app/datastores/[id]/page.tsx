@@ -21,7 +21,7 @@ import { FaCalendar, FaFingerprint } from "react-icons/fa";
 import { CgMenuGridR } from "react-icons/cg";
 import { IoIosAdd, IoMdArrowDropdown } from "react-icons/io";
 import { LiaSortAlphaDownAltSolid } from "react-icons/lia";
-import LeftMenu from "@/layouts/LeftMenu";
+import LeftMenu from "@/components/LeftMenu/LeftMenu";
 import datastores from "@/fake_data/datastore";
 import { Datastore as DatastoreType } from "@/types/datastore/datastore.type";
 

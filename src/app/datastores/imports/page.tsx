@@ -18,7 +18,6 @@ import StepLabel from '@mui/material/StepLabel';
 import { FaCloudUploadAlt } from "react-icons/fa";
 import { styled } from '@mui/material/styles';
 import { useState } from "react";
-import { time } from "console";
 import Link from "next/link";
 
 interface CsvItem {
@@ -81,9 +80,6 @@ export default function HorizontalLinearStepper() {
   };
 
   const handleImportCSV = async () =>{
-    // e.preventDefault
-    // create data table
-    console.log('true :>> ', true);
     setComfirmCsv(true)
     await new Promise(r => setTimeout(r, 3000));
 
@@ -121,53 +117,61 @@ export default function HorizontalLinearStepper() {
             <Box>
               <>
               {
-             comfirmCsv == true ? 
-                 (
-                  <CircularProgress color="secondary" />
-                ) 
-              : 
-              <><Box sx={{ paddingTop: '20px' }}>
+                comfirmCsv == true ? 
+                    (
+                      <Box sx={{ paddingTop: '20px' }}>
+                      <CircularProgress color="secondary" /> Importing CSV to database
+                      </Box>
+                    ) 
+                  : 
+                  <>
+                    <Box sx={{ paddingTop: '20px' }}>
                       Table Name: {nameFile}
-                    </Box><Box display={'flex'} sx={{ paddingTop: '20px' }}>
-                        <Button variant="contained" onClick={handleImportCSV}>Begin import</Button>
-                        <Button variant="outlined">Cancel</Button>
-                      </Box><TableContainer component={Paper} sx={{ paddingTop: '20px' }}>
-                        <Table aria-label="simple table">
-                          <TableHead>
-                            <TableRow>
-                              {headerKeys.map((key) => (
+                    </Box>
+                    <Box display={'flex'} sx={{ paddingTop: '20px' }}>
+                      <Button variant="outlined" onClick={handleImportCSV} sx={{marginRight:'20px'}}>Begin import</Button>
+                      <Button variant="outlined">Cancel</Button>
+                    </Box>
+                    <TableContainer component={Paper} sx={{ paddingTop: '20px', marginTop:'20px' }}>
+                      <Table aria-label="simple table">
+                        <TableHead>
+                          <TableRow>
+                            {headerKeys.map((key) => (
+                              // eslint-disable-next-line react/jsx-key
+                              <TableCell align="center">{key}</TableCell>
+                            ))}
+                          </TableRow>
+                        </TableHead>
+                        <TableBody>
+                          {arrayData.map((item) => (
+                            <TableRow
+                              key={item.name}
+                              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                            >
+                              {Object.values(item).map((val) => (
                                 // eslint-disable-next-line react/jsx-key
-                                <TableCell align="center">{key}</TableCell>
+                                <TableCell align="center">{val}</TableCell>
                               ))}
                             </TableRow>
-                          </TableHead>
-                          <TableBody>
-                            {arrayData.map((item) => (
-                              <TableRow
-                                key={item.name}
-                                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                              >
-                                {Object.values(item).map((val) => (
-                                  // eslint-disable-next-line react/jsx-key
-                                  <TableCell align="center">{val}</TableCell>
-                                ))}
-                              </TableRow>
-                            ))}
-                          </TableBody>
-                        </Table>
-                      </TableContainer></>
-            }
+                          ))}
+                        </TableBody>
+                      </Table>
+                    </TableContainer>
+                  </>
+                }
               </>
             </Box>
           )
           
       case 2:
         return (
-          <Box >
+          <Box sx={{paddingTop:'20px'}}>
             <Box> Imported number rows </Box>
             Your data has been imported successfully. You can either delete this table, edit your CSV and re-import, or make edits to the table in the UI.
             <Box display={'flex'} sx={{paddingTop:'20px'}}>
-              <Button variant="contained" ><Link href='/datastores'>Go to your table</Link></Button>
+              <Button variant="outlined" sx={{marginRight:'20px'}}>
+                <Link href='/datastores'>Go to your table</Link>
+              </Button>
               <Button variant="outlined">Delete table and try again</Button>
             </Box>
           </Box>

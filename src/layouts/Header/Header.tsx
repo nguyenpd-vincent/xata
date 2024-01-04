@@ -1,27 +1,12 @@
-// components/Header.tsx
-import { AppBar, Avatar, Box, Button, Container, Divider, IconButton, Menu, MenuItem, PaletteMode, Select, Toolbar, Tooltip, Typography } from "@mui/material";
-// import LightModeIcon from '@mui/icons-material/LightMode';
-// import ModeNightIcon from '@mui/icons-material/ModeNight';
-// import theme from '@/utils/theme'
+import { AppBar, Avatar, Box, Container, IconButton, Menu, MenuItem, Switch, Toolbar, Tooltip, Typography } from "@mui/material";
 import * as React from 'react';
-import AdbIcon from '@mui/icons-material/Adb';
+// import AdbIcon from '@mui/icons-material/Adb';
 import MenuIcon from '@mui/icons-material/Menu';
-import Brightness4Icon from '@mui/icons-material/Brightness4';
-import Brightness7Icon from '@mui/icons-material/Brightness7';
-// import { useTheme, ThemeProvider, createTheme } from '@mui/material/styles';
 import { useModeContext } from "../../app/providers";
-// const ColorModeContext = React.createContext({ toggleColorMode: () => {
-//   const newMode = theme.palette.mode === 'light' ? 'dark' : 'light';
-//   localStorage.setItem('colorMode', newMode);
-//   theme.palette.mode = newMode as PaletteMode;
-// } });
-
 
 const Header = () => {
   const { mode, toggleColorMode } = useModeContext();
 
-  // const theme = useTheme();
-  // const colorMode = React.useContext(ColorModeContext);
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
 
@@ -32,25 +17,26 @@ const Header = () => {
     setAnchorElUser(event.currentTarget);
   };
 
-  // const handleCloseNavMenu = () => {
-  //   setAnchorElNav(null);
-  // };
-
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
 
-  // const handleToggleColorMode = () => {
-  //   const newMode = theme.palette.mode === 'light' ? 'dark' : 'light';
-  //   localStorage.setItem('colorMode', newMode);
-  //   theme.palette.mode = newMode as PaletteMode;
-  // };
   
   return (
-    <AppBar position="static">
-    <Container maxWidth="xl">
+    <AppBar position="static" 
+    sx={{ justifyContent: 'center',
+    bgcolor: 'background.default',
+    color: 'text.primary',
+    // paddingLeft:'100px'
+    }}>
+    <Box 
+    // maxWidth="xl"
+    sx={{
+      width: '100vw'
+    }}
+    >
       <Toolbar disableGutters>
-        <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+        {/* <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} /> */}
         <Typography
           variant="h6"
           noWrap
@@ -105,7 +91,7 @@ const Header = () => {
             ))}
           </Menu> */}
         </Box>
-        <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
+        {/* <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} /> */}
         <Typography
           variant="h5"
           noWrap
@@ -174,15 +160,17 @@ const Header = () => {
                   p: 3,
                 }}
               >
-              {mode} mode
-              <IconButton sx={{ ml: 1 }}  onClick={toggleColorMode} color="inherit">
-                {mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
-              </IconButton>
+              Dark Mode
+              <Switch
+                checked={mode === 'dark' ? true : false}
+                onChange={toggleColorMode}
+                inputProps={{ 'aria-label': 'controlled' }}
+              />
             </Box>
           </Menu>
         </Box>
       </Toolbar>
-    </Container>
+    </Box>
   </AppBar>
     
   );

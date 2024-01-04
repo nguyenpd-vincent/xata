@@ -14,13 +14,11 @@ const BaseLayout: FC<BaseLayoutProps> = ({ children }) => {
     <Box display="flex" flexDirection="column" minHeight="50vh"  height="100vh">
       <CssBaseline />
       <Header />
-      <Container
-       component="main"
-       maxWidth="lg" 
-        sx={{ flexGrow: 1, paddingTop:'10px' }}
+      <Box
+        sx={{ flexGrow: 1, paddingTop:'10px', width:'100vw' }}
         >
           {children}
-      </Container>
+      </Box>
       <Footer></Footer>
     </Box>
   );
