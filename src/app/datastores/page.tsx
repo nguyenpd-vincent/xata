@@ -16,13 +16,15 @@ export default function Home() {
   const databaseRecords = datastores;
 
   return (
-    <Grid container>
-      <Grid item xs={12} md={3} alignItems="center" p={3}>
+    <Grid container sx={{ height: "100%", p: "0" }}>
+      <Grid item xs={12} md={3} alignItems="center" sx={{
+        borderRight: "1px solid grey"
+      }}>
         <LeftMenuDatastore />
       </Grid>
-      <Grid item xs={12} md={1}>
+      {/* <Grid item xs={12} md={1}>
         <Divider orientation="vertical" flexItem />
-      </Grid>
+      </Grid> */}
       <Grid item xs={12} md={8}>
         <Box m="50px 20px 50px 20px">
           <Box

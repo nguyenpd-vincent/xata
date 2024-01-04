@@ -27,12 +27,12 @@ const Header = () => {
     sx={{ justifyContent: 'center',
     bgcolor: 'background.default',
     color: 'text.primary',
-    // paddingLeft:'100px'
+    paddingLeft:'100px'
     }}>
     <Box 
     // maxWidth="xl"
     sx={{
-      width: '100vw'
+      width: '100%'
     }}
     >
       <Toolbar disableGutters>

@@ -17,7 +17,7 @@ const Footer: React.FC = () => {
       sx={{
         bgcolor: 'background.paper',
         color: 'text.secondary',
-        py: 3,
+        py: "15px",
         borderTop: '1px solid',
         borderColor: 'divider',
       }}
@@ -29,10 +29,6 @@ const Footer: React.FC = () => {
               Hexabase
             </Typography>
             {/* Add your logo component or image here */}
-          </Grid>
-         
-          <Grid item xs={12} sm={6} md={4}>
-            
           </Grid>
          
           <Grid item xs={6} sm={3} md={2}>

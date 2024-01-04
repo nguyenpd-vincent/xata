@@ -10,7 +10,7 @@ import { CiWallet } from "react-icons/ci";
 
 const LeftMenuHome = () => {
   return (
-    <Stack spacing={4} alignItems="flex-start">
+    <Stack spacing={4} alignItems="flex-start" sx={{ pt: "10px" }}>
       <Button
         // fontSize="md"
         // fontWeight="bold"
