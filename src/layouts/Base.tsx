@@ -15,7 +15,7 @@ const BaseLayout: FC<BaseLayoutProps> = ({ children }) => {
       <CssBaseline />
       <Header />
       <Box
-        sx={{ flexGrow: 1, paddingTop:'10px', width:'100vw' }}
+        sx={{ flexGrow: 1, paddingTop:'0', width:'100%' }}
         >
           {children}
       </Box>

@@ -50,10 +50,13 @@ export default function Datastore() {
   return (
     <>
       <Box display="flex" width="100%">
-        <Box flex={2} borderRight="1px solid grey">
+        <Box sx={{ flex: 2, borderRight: "1px solid grey" }}>
           <LeftMenu />
         </Box>
-        <Box flex={6} px={5}>
+        <Box sx={{
+          flex: 10,
+          px: 5
+        }}>
           <Box>
             <Typography variant="h6" fontWeight="bold" display="flex" alignItems="center" marginBottom={3}>
               Table name

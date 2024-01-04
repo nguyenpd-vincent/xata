@@ -68,6 +68,11 @@ export default function ThemeRegistry(props: any) {
     palette: {
       mode: mode,
     },
+    typography: {
+      button: {
+        textTransform: 'none'
+      }
+    }
   });
 
   return (
